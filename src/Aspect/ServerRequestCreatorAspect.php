@@ -36,7 +36,6 @@ class ServerRequestCreatorAspect extends AbstractAspect
     {
         $method = $this->getMethodFromEnv($server);
         $uri = $this->getUriFromEnvWithHTTP($proceedingJoinPoint, $server);
-        var_dump($uri);
         $protocol = isset($server['server_protocol']) ? \str_replace('HTTP/', '', $server['server_protocol']) : '1.1';
         $instance = $proceedingJoinPoint->getInstance();
 
