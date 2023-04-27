@@ -11,17 +11,15 @@ declare(strict_types=1);
  */
 namespace EasyWeChat;
 
+use EasyWeChat\Aspect\ServerRequestCreatorAspect;
+
 class ConfigProvider
 {
     public function __invoke(): array
     {
         return [
-            'annotations' => [
-                'scan' => [
-                    'class_map' => [
-                        ServerRequestCreator::class => __DIR__ . '/../class_map/ServerRequestCreator.php',
-                    ],
-                ],
+            'aspects' => [
+                ServerRequestCreatorAspect::class,
             ],
         ];
     }
